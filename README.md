@@ -5,9 +5,11 @@ Este projeto é um **sistema bancário simples** desenvolvido em **Java**, com i
 
 O objetivo é simular operações básicas de uma agência bancária, como cadastro de clientes e movimentações em contas correntes e poupança.  
 
+O projeto utiliza **JDBC (Java Database Connectivity)** para realizar a comunicação entre o Java e o banco de dados MySQL. Todas as operações de CRUD (Create, Read, Update, Delete) e transações financeiras são feitas através de **PreparedStatements e conexões gerenciadas via JDBC**.
+
 Esse projeto tem fins **educacionais**, servindo como prática de:
 - Programação orientada a objetos (POO) em Java
-- Integração Java com banco de dados MySQL
+- Integração Java com banco de dados MySQL via JDBC
 - Boas práticas de organização de código (camadas Model, DAO, Service e View)
 
 ---
