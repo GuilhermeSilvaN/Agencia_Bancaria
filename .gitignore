@@ -1,0 +1,8 @@
+#ignorar arquivos compilados do java
+out/
+bin/
+*.class
+
+#ignorar IDEs
+.idea/
+.vscode/
