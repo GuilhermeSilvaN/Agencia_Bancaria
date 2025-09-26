@@ -10,7 +10,7 @@ O projeto utiliza **JDBC (Java Database Connectivity)** para realizar a comunica
 Esse projeto tem fins **educacionais**, servindo como prática de:
 - Programação orientada a objetos (POO) em Java
 - Integração Java com banco de dados MySQL via JDBC
-- Boas práticas de organização de código (camadas Model, DAO, Service e View)
+- Boas práticas de organização de código (camadas Model, DAO, service e View)
 
 ---
 
