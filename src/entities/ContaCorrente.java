@@ -1,12 +1,14 @@
 package entities;
 
 
+import model.TipoConta;
 import service.Conta;
 
 public class ContaCorrente extends Conta {
     private Double limiteChequeEspecial;
+    private TipoConta corrente = TipoConta.POUPANCA;
 
-    public ContaCorrente(String numeroConta, Double saldo, Pessoa pessoa, Double limiteChequeEspecial) {
+    public ContaCorrente(String numeroConta, Double saldo, Cliente pessoa, Double limiteChequeEspecial) {
         super(numeroConta, saldo, pessoa);
         this.limiteChequeEspecial = limiteChequeEspecial;
     }
@@ -30,8 +32,9 @@ public class ContaCorrente extends Conta {
         StringBuilder sb = new StringBuilder();
         sb.append("=============== CONTA CORRENTE"+ " ===============\n");
         sb.append("{numero da conta : " + getNumeroConta() + "}\n");
+        sb.append("{tipo de conta: " + this.corrente + " }\n");
         sb.append("{saldo : " + getSaldo() + "}\n");
-        sb.append("{cliente : " + getPessoa() + "}\n");
+        sb.append("{cliente : " + getCliente() + "}\n");
         sb.append("{limite de cheque especial : " + String.format("%.2f", getLimiteChequeEspecial()) + "}\n");
 
         return sb.toString();

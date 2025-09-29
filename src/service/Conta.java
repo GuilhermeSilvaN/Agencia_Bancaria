@@ -1,16 +1,18 @@
 package service;
 
-import entities.Pessoa;
+import entities.Cliente;
+import model.TipoConta;
 
 public abstract class Conta {
     private String numeroConta;
     private Double saldo;
-    private Pessoa pessoa;
+    private Cliente cliente;
+    private TipoConta tipoConta;
 
-    public Conta (String numeroConta, Double saldo, Pessoa pessoa) {
+    public Conta (String numeroConta, Double saldo, Cliente cliente) {
         this.numeroConta = numeroConta;
         this.saldo = saldo;
-        this.pessoa = pessoa;
+        this.cliente = cliente;
     }
 
     public void Depositar(double valor){
@@ -37,8 +39,16 @@ public abstract class Conta {
         this.saldo = saldo;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public TipoConta getTipoConta(){
+        return tipoConta;
+    }
+
+    public void setTipoConta(TipoConta tipoConta){
+        this.tipoConta = tipoConta;
     }
 
     @Override
@@ -46,7 +56,7 @@ public abstract class Conta {
         return "Conta{" +
                 "numeroConta='" + numeroConta + '\'' +
                 ", saldo=" + saldo +
-                ", pessoa= (" + pessoa +
+                ", pessoa= (" + cliente +
                 ")}";
     }
 }
