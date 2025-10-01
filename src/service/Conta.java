@@ -15,7 +15,7 @@ public abstract class Conta {
         this.cliente = cliente;
     }
 
-    public void Depositar(double valor){
+    public void depositar(double valor){
         if(valor > 0.0){
             this.saldo += valor;
         }

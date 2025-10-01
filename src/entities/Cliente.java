@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Cliente {
+    private int id;
     private String nome;
     private String CPF;
     private LocalDate dataNascimento;
@@ -13,7 +14,8 @@ public class Cliente {
 
     public Cliente(){}
 
-    public Cliente(String nome, String CPF, LocalDate dataNascimento, EstadoCivil stateCivil) {
+    public Cliente(int id, String nome, String CPF, LocalDate dataNascimento, EstadoCivil stateCivil) {
+        this.id = id;
         this.nome = nome;
         setCPF(CPF);
         this.dataNascimento = dataNascimento;

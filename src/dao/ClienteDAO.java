@@ -1,7 +1,10 @@
 package dao;
 
 import entities.Cliente;
+import entities.ContaCorrente;
+import entities.ContaPoupanca;
 import model.EstadoCivil;
+import model.TipoConta;
 import service.Conta;
 
 import java.sql.*;
@@ -63,22 +66,54 @@ public class ClienteDAO {
     //Listar todas as contas;
     public List<Conta> listarTodas(){
         List<Conta> contas = new ArrayList<>();
-        String sql = "SELECT * FROM conta";
+        String sql = "SELECT c.id AS conta_id, c.numeroConta, c.tipo, c.saldo, " +
+            "cl.id AS cliente_id, cl.nome, cl.cpf, cl.dataNascimento, cl.estadoCivil " + 
+            "FROM conta c INNER JOIN cliente cl ON c.cliente_id = cl.id";
 
         try(Connection conn = DB.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet sr = stmt.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(sql);
         ){
             while(rs.next()){
-                String tipo = 
+                //MONTA CLIENTE;
+                Cliente cliente = new Cliente(
+                    rs.getInt("cliente_id"),
+                    rs.getString("nome"),
+                    rs.getString("cpf"),
+                    rs.getDate("dataNascimento").toLocalDate(),
+                    EstadoCivil.valueOf(rs.getString("estadoCivil".toUpperCase()))
+                );
+
+                //MONTA CONFORME TIPO;
+                Conta conta = null;
+                TipoConta tipoConta = TipoConta.valueOf(rs.getString("tipo").toUpperCase());
+                
+                if(tipoConta == TipoConta.CORRENTE){
+                    conta = new ContaCorrente(rs.getInt("conta_id"),
+                        TipoConta.CORRENTE,
+                        rs.getString("numeroConta"),
+                        rs.getDouble("saldo"),
+                        cliente);
+
+                } else if (tipoConta == TipoConta.POUPANCA){
+                    conta = new ContaPoupanca(
+                        rs.getInt("conta_id"),
+                        TipoConta.POUPANCA,
+                        rs.getString("numeroConta"),
+                        rs.getDouble("saldo"),
+                        cliente);
+                }
+                
+                if(conta != null) contas.add(conta);
+
             }
 
+
         } catch(SQLException e){
-            throw new RuntimeException(null);
+            throw new RuntimeException("Error ao solicitar lista : " + e.getMessage());
         }
-
-
 
         return contas;
     }
+
 }

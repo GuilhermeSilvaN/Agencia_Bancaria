@@ -1,5 +1,5 @@
 package model;
 
 public enum EstadoCivil {
-    CASADO, SOLTEIRO, VIUVO
+    CASADO, SOLTEIRO, VIUVO, DIVORCIADO
 }
