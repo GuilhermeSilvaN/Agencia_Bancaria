@@ -1,6 +1,6 @@
-# 💳 Sistema Bancário em Java
+# Sistema Bancário em Java
 
-## 📌 Sobre o Projeto
+## Sobre o Projeto
 Este projeto é um **sistema bancário simples** desenvolvido em **Java**, com interação via **terminal (console)** e persistência de dados em **MySQL**.  
 
 O objetivo é simular operações básicas de uma agência bancária, como cadastro de clientes e movimentações em contas correntes e poupança.  
@@ -14,9 +14,9 @@ Esse projeto tem fins **educacionais**, servindo como prática de:
 
 ---
 
-## ⚙️ Funcionalidades
+## Funcionalidades
 
-✅ Cadastro de clientes com:
+Cadastro de clientes com:
 - Nome  
 - Endereço  
 - Data de nascimento  
@@ -24,21 +24,21 @@ Esse projeto tem fins **educacionais**, servindo como prática de:
 - Estado civil  
 - Conta (Corrente ou Poupança)  
 
-🏦 Operações disponíveis:
+Operações disponíveis:
 - Consultar saldo  
 - Depositar  
 - Sacar  
 - Transferir valores entre contas  
 - Exibir extrato  
 
-📋 Gerenciamento:
+Gerenciamento:
 - Listar clientes  
 - Buscar cliente por CPF  
 - Excluir cliente  
 
 ---
 
-## 🗄️ Estrutura do Banco de Dados
+## Estrutura do Banco de Dados
 
 **Tabela Cliente**
 ```sql
